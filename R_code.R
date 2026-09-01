@@ -13,3 +13,5 @@ str(Sonar) # 60 variables (sensors), and 1 classification factor
 # Class - M (metal) or R (rock) 
 levels(Sonar$Class)
 Sonar %>% count(Class) %>% mutate(prop = n / sum(n)) 
+
+hist(Sonar$V60)
