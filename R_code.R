@@ -50,7 +50,6 @@ conf2
 t(conf2$table) 
 
 
-<<<<<<< HEAD
 ## 1. Split the data - test/train 
 set.seed(12)
 inTrain.clean = createDataPartition(sonar.clean$Class, p = 0.8, list = F) #stratified according to variable
@@ -105,3 +104,4 @@ head(pred.tune)
 
 pred.tune.prob = predict(rf.tune, sonar.test, type = 'prob') #probability predictions
 head(pred.tune.prob)
+
