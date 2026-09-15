@@ -50,6 +50,7 @@ conf2
 t(conf2$table) 
 
 
+<<<<<<< HEAD
 ## 1. Split the data - test/train 
 set.seed(12)
 inTrain.clean = createDataPartition(sonar.clean$Class, p = 0.8, list = F) #stratified according to variable
@@ -104,4 +105,34 @@ head(pred.tune)
 
 pred.tune.prob = predict(rf.tune, sonar.test, type = 'prob') #probability predictions
 head(pred.tune.prob)
+=======
+## CV (Repeated CV)
+set.seed(12)
+rf.cv = caret::train(Class ~ ., data = sonar.train, method = "ranger"
+                     , trControl = trainControl(method = "cv", number = 10) # 10-fold CV
+)
+rf.cv 
+
+
+## EVALUATION METRIC 
+set.seed(12)
+rf.kap = caret::train(Class ~ ., data = sonar.train, method = "ranger"
+                      , metric = "Kappa" #example using kappa instead
+                      , trControl = trainControl(method = "cv", number = 10)
+)
+rf.kap
+
+
+## CLASS PROBABILITIES
+predict(rf.kap, sonar.test, type = "prob") # why didn't this work? 
+
+?caret::trainControl # classProbs = FALSE
+rf.prob = caret::train(Class ~ ., data = sonar.train, method = "ranger"
+                       , trControl = trainControl(method = "cv", number = 10, classProbs = T) #make classProbs = T
+)
+rf.prob
+prob = predict(rf.prob, sonar.test, type = "prob") #predicted probabilities
+head(prob) 
+# We can use these to calculate ROC, AUC, and all the other curves like before
+>>>>>>> 4ed479a3dc41b1eb150589ca11c0ee7169b2b284
 
