@@ -1,4 +1,4 @@
-In this project I built a Random Forest model to classify an object detected by 60 sonars, we will use the factors Metal and Rock as the classes that our model will classify.
+In this project I built a Random Forest model to classify an object detected by 60 sonar sensors, we will use the factors Metal and Rock as the classes that our model will classify.
 
 This project was built in R, following the next steps:
 
@@ -17,6 +17,7 @@ This project was built in R, following the next steps:
   7.- Check the Confusion Matrix to verify the TP and TN.
   
   8.- Check the performance metric in this case since the class proportion was balanced, I used the accuracy metric instead of Kappa.
-  
+
+  9.- Create our own grid to enhance the model performance.
   
   
